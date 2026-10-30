@@ -1,0 +1,164 @@
+@import "tailwindcss";
+
+/* Dark mode follows the data-theme attribute set by the inline script in layout.tsx */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+/* ---------- Design tokens ---------- */
+:root {
+  --bg: #f8fafc;
+  --surface: #ffffff;
+  --surface-2: #f1f5f9;
+  --border: #e2e8f0;
+  --border-strong: #cbd5e1;
+  --fg: #0f172a;
+  --muted: #475569;
+  --subtle: #64748b;
+
+  --primary: #047857;
+  --primary-hover: #065f46;
+  --primary-fg: #ffffff;
+  --primary-soft: #ecfdf5;
+  --primary-soft-fg: #065f46;
+  --ring: #059669;
+
+  --danger: #b91c1c;
+  --danger-soft: #fef2f2;
+  --warning: #b45309;
+  --warning-soft: #fffbeb;
+
+  --shadow-color: 15 23 42;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg: #0a0f1a;
+  --surface: #111827;
+  --surface-2: #182132;
+  --border: #243042;
+  --border-strong: #334155;
+  --fg: #e8ecf2;
+  --muted: #a7b1c2;
+  --subtle: #8b98ad;
+
+  --primary: #34d399;
+  --primary-hover: #6ee7b7;
+  --primary-fg: #052e1f;
+  --primary-soft: #0f2a22;
+  --primary-soft-fg: #6ee7b7;
+  --ring: #34d399;
+
+  --danger: #f87171;
+  --danger-soft: #2a1517;
+  --warning: #fbbf24;
+  --warning-soft: #2a2110;
+
+  --shadow-color: 0 0 0;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-fg: var(--primary-fg);
+  --color-primary-soft: var(--primary-soft);
+  --color-primary-soft-fg: var(--primary-soft-fg);
+  --color-ring: var(--ring);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-urdu: var(--font-nastaliq), "Noto Nastaliq Urdu", "Jameel Noori Nastaleeq", serif;
+
+  --shadow-card: 0 1px 2px rgb(var(--shadow-color) / 0.04), 0 1px 3px rgb(var(--shadow-color) / 0.06);
+  --shadow-raised: 0 4px 12px -2px rgb(var(--shadow-color) / 0.08), 0 2px 4px -2px rgb(var(--shadow-color) / 0.05);
+
+  --animate-fade-in: fade-in 160ms ease-out;
+  --animate-slide-down: slide-down 180ms ease-out;
+  --animate-shimmer: shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-down {
+  from { opacity: 0; transform: translateY(-6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+/* ---------- Base ---------- */
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--border);
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background-color: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: color-mix(in srgb, var(--primary) 25%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  /* Inputs draw their own focus ring via box-shadow */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: none;
+  }
+
+  ::placeholder {
+    color: var(--subtle);
+    opacity: 1;
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  summary {
+    cursor: pointer;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
