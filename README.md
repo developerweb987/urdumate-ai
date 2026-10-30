@@ -22,12 +22,3 @@
 * **Frontend:** Next.js (App Router), TypeScript, Tailwind CSS v4, Lucide Icons
 * **Backend:** Python, FastAPI, Pydantic, Uvicorn
 * **AI & NLP:** In-browser Transformers.js (Web Workers) & direct lightweight translation pipelines
-
----
-
-## 🚀 Quick Setup
-
-### 1. Clone Repository
-```bash
-git clone [https://github.com/developerweb987/urdumate-ai.git](https://github.com/developerweb987/urdumate-ai.git)
-cd urdumate-ai
