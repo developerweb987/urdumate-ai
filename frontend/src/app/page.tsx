@@ -89,7 +89,7 @@ export default function Home() {
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.05fr_1fr] lg:px-8 lg:py-24">
           <div className="text-center lg:text-left">
             <p className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary-soft px-3 py-1 text-xs font-semibold text-primary-soft-fg">
-              Pakistan&rsquo;s free bilingual writing assistant
+              Pakistan&rsquo;s free English & Urdu AI writing copilot
             </p>
 
             <h1 className="mt-5 text-4xl font-extrabold tracking-tight text-fg text-balance sm:text-5xl lg:text-[3.4rem] lg:leading-[1.08]">
